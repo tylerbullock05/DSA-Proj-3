@@ -14,7 +14,7 @@ using namespace std;
 
 class AdjacencyList {
     private:
-        map<string, <vector<pair<string, int>>> graph;
+        map<string, vector<pair<string, int>>> graph;
 
     public:
         // Function to add edge with distance in miles being the weight
