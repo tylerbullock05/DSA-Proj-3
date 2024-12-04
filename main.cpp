@@ -45,9 +45,9 @@ int main()
 
         if (number2 == 1) {
             graph.printGraph();
-            cout << "\nEnter any key to continue: ";
-            char continueKey;
-            cin >> continueKey;
+            cout << "\nPress enter key to continue: ";
+            cin.ignore();
+            cin.get();
         }
         else if (number2 == 2) {
             while(true)
@@ -68,13 +68,21 @@ int main()
         }
 
         else if(number2 == 3) {
-            cout << "Enter in all caps an airport code: ";
-            string airportCode;
-            cin >> airportCode;
-            graph.printDirect(airportCode);
-            cout << "\nEnter any key to continue: ";
-            char continueKey;
-            cin >> continueKey;
+            while(true) {
+                cout << "\nType 'RETURN' to bo back to welcome screen or" << endl;
+                cout << "Enter in all caps an airport code: " << endl;
+                string airportCode;
+                cin >> airportCode;
+                if(airportCode == "RETURN") {
+                    break;
+                }
+                else {
+                    graph.printDirect(airportCode);
+                }
+                //cout << "\nPress enter key to continue: ";
+                //cin.ignore();
+                //cin.get();
+            }
         }
 
         else if (number2 == 4) {
@@ -83,9 +91,11 @@ int main()
             string destination;
             cout << "Enter the origin airport code in all caps: " << endl;
             cin >> origin;
-
             cout << "Enter the destination airport code in all caps: " << endl;
             cin >> destination;
+            // Check to see if it exists
+            int originExists = graph.codeExists(origin);
+            int destinationExists = graph.codeExists(destination);
 
             // Run the two algorithms and start the clocks
             auto start = chrono::high_resolution_clock::now();
@@ -111,16 +121,19 @@ int main()
             auto end2 = chrono::high_resolution_clock::now();
             auto bellmanFordTime = chrono::duration_cast<chrono::microseconds>(end2 - start2);
             // If a path exists, print the shortest distance
-            if (bellmanFordDistance != -1) {
+            if (originExists == 1 || destinationExists == 1) {
+                cout << endl << "Bellman-Ford Algorithm: No path exists from " << origin << " to " << destination << "." << endl;
+            }
+            else if (bellmanFordDistance != -1) {
                 cout << endl << "Bellman-Ford Algorithm: Shortest distance from " << origin << " to " << destination << " is " << bellmanFordDistance << " miles." << endl;
             } else if(origin != destination){
                 cout << endl << "Bellman-Ford Algorithm: No path exists from " << origin << " to " << destination << "." << endl;
             }
             cout << "Bellman-Ford time: " << bellmanFordTime.count() << " microseconds" << endl;
 
-            cout << "\nEnter any key to continue: ";
-            char continueKey;
-            cin >> continueKey;
+            cout << "\nPress enter key to continue: ";
+            cin.ignore();
+            cin.get();
         }
 
         else if (number2 == 5) {

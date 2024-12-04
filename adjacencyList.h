@@ -46,6 +46,18 @@ class AdjacencyList {
             }
         }
 
+        // Function to see if airport code exits
+        int codeExists(const string& airportCode) const {
+            // See if it exists
+            auto it = graph.find(airportCode);
+            if (it == graph.end()) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+
         void printDirect(const string& airportCode) const {
             // See if it exists
             auto it = graph.find(airportCode);
