@@ -35,7 +35,7 @@ int main()
     int dijkstraDistance = graph.dijkstra(origin, destination);
 
     auto end = chrono::high_resolution_clock::now();
-    auto dijkstraTime = chrono::duration_cast<chrono::milliseconds>(end - start);
+    auto dijkstraTime = chrono::duration_cast<chrono::microseconds>(end - start);
     // If a path exists, print the shortest distance
     if (dijkstraDistance != -1) {
         cout << "Dijkstra's Algorithm: Shortest distance from " << origin << " to " << destination << " is " << dijkstraDistance << " miles." << endl;
@@ -43,7 +43,7 @@ int main()
     else {
         cout << "Dijkstra's Algorithm: No path exists from " << origin << " to " << destination << "." << endl;
     }
-    cout << "Dijkstra time: " << dijkstraTime.count() << "ms" << endl;
+    cout << "Dijkstra time: " << dijkstraTime.count() << " microseconds" << endl;
 
     // Run the Bellman-Ford
     auto start2 = chrono::high_resolution_clock::now();
@@ -51,14 +51,14 @@ int main()
     int bellmanFordDistance = graph.bellmanFord(origin, destination);
     
     auto end2 = chrono::high_resolution_clock::now();
-    auto bellmanFordTime = chrono::duration_cast<chrono::milliseconds>(end2 - start2);
+    auto bellmanFordTime = chrono::duration_cast<chrono::microseconds>(end2 - start2);
     // If a path exists, print the shortest distance
     if (bellmanFordDistance != -1) {
         cout << "Bellman-Ford Algorithm: Shortest distance from " << origin << " to " << destination << " is " << bellmanFordDistance << " miles." << endl;
     } else {
         cout << "Bellman-Ford Algorithm: No path exists from " << origin << " to " << destination << "." << endl;
     }
-    cout << "Bellman-Ford time: " << bellmanFordTime.count() << "ms" << endl;
+    cout << "Bellman-Ford time: " << bellmanFordTime.count() << " microseconds" << endl;
 
     return 0;
 }
