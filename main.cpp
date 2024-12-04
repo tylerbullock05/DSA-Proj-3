@@ -39,7 +39,7 @@ int main()
 
         int number2 = number - '0';
         if (number2 > 5 || number2 < 1) {
-            cout << "Input not valid, please retry:" << endl;
+            cout << "Input not valid, please retry: " << endl;
             continue;
         }
 
