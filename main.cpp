@@ -2,6 +2,9 @@
 #include "adjacencyList.h"
 #include <vector>
 #include <iostream>
+
+#include "adjacencyList.h"
+
 using namespace std;
 
 int main()
@@ -14,6 +17,10 @@ int main()
         graph.addEdge(flight[0],flight[1],stoi(flight[2]));
     }
     cout<<"done"<<endl;
+
+    // Print out the graph
+    cout << "Graph: \n";
+    graph.printGraph();
 
     return 0;
 }
