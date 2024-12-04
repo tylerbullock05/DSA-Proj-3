@@ -69,14 +69,16 @@ int main()
 
         else if(number2 == 3) {
             while(true) {
-                cout << "\nType 'RETURN' to bo back to welcome screen or" << endl;
-                cout << "Enter in all caps an airport code: " << endl;
+                cout << "\nTo go back to welcome screen, type 'RETURN': " << endl;
+                cout << "Enter in all caps an airport code: ";
+
                 string airportCode;
                 cin >> airportCode;
                 if(airportCode == "RETURN") {
                     break;
                 }
                 else {
+                    cout << endl;
                     graph.printDirect(airportCode);
                 }
                 //cout << "\nPress enter key to continue: ";
@@ -89,9 +91,9 @@ int main()
             // Ask user for inputs of airport codes
             string origin;
             string destination;
-            cout << "Enter the origin airport code in all caps: " << endl;
+            cout << "Enter the origin airport code in all caps: ";
             cin >> origin;
-            cout << "Enter the destination airport code in all caps: " << endl;
+            cout << "Enter the destination airport code in all caps: ";
             cin >> destination;
             // Check to see if it exists
             int originExists = graph.codeExists(origin);
