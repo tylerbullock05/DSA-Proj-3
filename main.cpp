@@ -45,7 +45,7 @@ int main()
 
         if (number2 == 1) {
             graph.printGraph();
-            cout << "\nPress enter key to continue: ";
+            cout << "\nPress the enter key to continue: ";
             cin.ignore();
             cin.get();
         }
@@ -133,7 +133,7 @@ int main()
             }
             cout << "Bellman-Ford time: " << bellmanFordTime.count() << " microseconds" << endl;
 
-            cout << "\nPress enter key to continue: ";
+            cout << "\nPress the enter key to continue: ";
             cin.ignore();
             cin.get();
         }
