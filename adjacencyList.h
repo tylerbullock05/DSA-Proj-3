@@ -1,6 +1,3 @@
-//
-// Created by Ross Jackson on 12/3/24.
-//
 #pragma once
 
 #include <string>
@@ -44,9 +41,25 @@ class AdjacencyList {
             for (const auto& [node, neighbors] : graph) {
                 cout << "Airport " << node << " connects to:\n";
                 for (const auto& [neighbor, distance] : neighbors) {
-                    cout << "  - " << neighbor << " (" << distance << " miles)\n";
+                    cout << "  - " << neighbor << " (" << distance << " miles)" << endl;
                 }
             }
+        }
+
+        void printDirect(const string& airportCode) const {
+            // See if it exists
+            auto it = graph.find(airportCode);
+            if (it == graph.end()) {
+                cout << "Not a valid airport code: " << endl;
+                return;
+            }
+
+            // Now print
+            cout << "Airport " << airportCode << " connects to:\n";
+            for (const auto& [neighbor2, distance] : it->second) {
+                cout << "  - " << neighbor2 << " (" << distance << " miles)" << endl;
+            }
+
         }
 
         // Dijkstra's Algorithm
