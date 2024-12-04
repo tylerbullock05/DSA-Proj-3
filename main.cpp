@@ -15,8 +15,7 @@ int main()
     {
         graph.addEdge(flight[0],flight[1],stoi(flight[2]));
     }
-
-    // gives user option to look at available airport codes
+// gives user option to look at available airport codes
     set<string> airports = graph.getAirports();
     while(true)
     {
