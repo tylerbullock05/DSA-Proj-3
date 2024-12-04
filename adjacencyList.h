@@ -12,13 +12,14 @@
 #include <queue>
 #include <unordered_map>
 #include <limits>
-
+#include <set>
 using namespace std;
 
 class AdjacencyList {
     private:
         map<string, vector<pair<string, int>>> graph;
-
+        set<string> uniqueAirports;
+        int numAirports = 0;
     public:
         // Function to add edge with distance in miles being the weight
         void addEdge(const string& from, const string& to, int distance) {
@@ -34,8 +35,11 @@ class AdjacencyList {
             if (graph.find(to) == graph.end()) {
                 graph[to] = {};
             }
+            if(uniqueAirports.insert(from).second)
+                numAirports++;
+            if(uniqueAirports.insert(to).second)
+                numAirports++;
         }
-
         void printGraph() const {
             for (const auto& [node, neighbors] : graph) {
                 cout << "Airport " << node << " connects to:\n";
@@ -119,4 +123,8 @@ class AdjacencyList {
 
             return distances[destination] == numeric_limits<int>::max() ? -1 : distances[destination];
         }
+        set<string> getAirports(){
+            return uniqueAirports;
+        };
+
 };
