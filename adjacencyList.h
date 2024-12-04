@@ -24,4 +24,4 @@ class AdjacencyList {
                 graph[to] = {};
             }
         }
-}
+};
