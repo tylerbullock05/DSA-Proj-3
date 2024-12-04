@@ -113,7 +113,7 @@ int main()
             // If a path exists, print the shortest distance
             if (bellmanFordDistance != -1) {
                 cout << endl << "Bellman-Ford Algorithm: Shortest distance from " << origin << " to " << destination << " is " << bellmanFordDistance << " miles." << endl;
-            } else {
+            } else if(origin != destination){
                 cout << endl << "Bellman-Ford Algorithm: No path exists from " << origin << " to " << destination << "." << endl;
             }
             cout << "Bellman-Ford time: " << bellmanFordTime.count() << " microseconds" << endl;
